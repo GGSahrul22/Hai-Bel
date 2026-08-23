@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmer's Flowers - Berliana Syafitri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <svg id="flower-frame" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Gradasi Cahaya Bunga -->
+        <linearGradient id="pinkGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#ff1493" stop-opacity="0.2"/>
+          <stop offset="70%" stop-color="#ff69b4" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="1"/>
+        </linearGradient>
+
+        <linearGradient id="goldGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#ff4500"/>
+          <stop offset="50%" stop-color="#ffa500"/>
+          <stop offset="100%" stop-color="#ffeeaa"/>
+        </linearGradient>
+
+        <!-- Efek Glowing Filter -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Batang & Sulur Cahaya (Garis) -->
+      <g id="Flourish" filter="url(#glow)">
+        <path class="line-path" d="M 400,550 Q 400,450 350,380 T 320,250" />
+        <path class="line-path" d="M 400,550 Q 400,450 450,380 T 480,250" />
+        <path class="line-path" d="M 400,580 L 400,320" />
+        <path class="line-path" d="M 400,480 Q 300,450 220,400 T 150,280" />
+        <path class="line-path" d="M 400,480 Q 500,450 580,400 T 650,280" />
+      </g>
+
+      <!-- Kelopak Bunga Teratai (Lotus Pink Group) -->
+      <g id="PinkFlowerGroup" filter="url(#glow)">
+        <!-- Kelopak Luar -->
+        <path class="petal petal-outer" d="M 400,320 C 300,350 240,250 400,120 C 560,250 500,350 400,320 Z" />
+        <path class="petal petal-outer" d="M 400,320 C 260,330 200,200 350,150 C 450,200 540,330 400,320 Z" />
+        <path class="petal petal-outer" d="M 400,320 C 540,330 600,200 450,150 C 350,200 260,330 400,320 Z" />
+
+        <!-- Kelopak Tengah -->
+        <path class="petal petal-mid" d="M 400,320 C 330,300 280,180 400,150 C 520,180 470,300 400,320 Z" />
+        <path class="petal petal-mid" d="M 400,320 C 280,280 300,160 400,170 C 500,160 520,280 400,320 Z" />
+
+        <!-- Kelopak Dalam & Inti Bunga -->
+        <path class="petal petal-inner" d="M 400,320 C 360,280 340,200 400,180 C 460,200 440,280 400,320 Z" />
+        <circle class="core" cx="400" cy="270" r="12" fill="url(#goldGrad)" />
+      </g>
+    </svg>
+
+    <!-- Tulisan Teks Akhir -->
+    <div class="greeting-text">Hai Berliana Syafitri</div>
+  </div>
+
+</body>
+</html>

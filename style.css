@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #131b21;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Sacramento', cursive, sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+svg#flower-frame {
+  height: 85vh;
+  width: 100%;
+}
+
+/* Animasi Garis Batang / Sulur */
+.line-path {
+  fill: none;
+  stroke: url(#goldGrad);
+  stroke-width: 3;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLines 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Animasi Kelopak Bunga */
+.petal {
+  fill: url(#pinkGrad);
+  stroke: #ff69b4;
+  stroke-width: 1.5;
+  transform-origin: 400px 320px;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.petal-outer {
+  animation: bloomPetal 2s ease-out 2.5s forwards;
+}
+
+.petal-mid {
+  animation: bloomPetal 2s ease-out 3.2s forwards;
+}
+
+.petal-inner {
+  animation: bloomPetal 1.8s ease-out 3.8s forwards;
+}
+
+.core {
+  opacity: 0;
+  animation: fadeInCore 1.5s ease-in 4.2s forwards;
+}
+
+/* Tulisan Akhir "Hai Berlian Syafitri" */
+.greeting-text {
+  position: absolute;
+  bottom: 5%;
+  font-size: 3.5rem;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #ff69b4,
+    0 0 20px #ff1493,
+    0 0 30px #ff1493;
+  animation: showText 2s ease-in-out 4.8s forwards;
+}
+
+/* Keyframe Animasi */
+@keyframes drawLines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes bloomPetal {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-10deg);
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes fadeInCore {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
